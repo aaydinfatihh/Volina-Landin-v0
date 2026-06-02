@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Volina — Ölü leadleri uyandıran yapay zeka ses agentı</title>
+<link rel="icon" type="image/png" href="assets/volina-favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700;1,800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="#top" class="nav__brand" aria-label="Volina">
+      <img src="assets/volina-wordmark-white.png" alt="volina" class="nav__brand-img nav__brand-img--light" style="height: 46px; width: 108px" />
+      <img src="assets/volina-wordmark.png" alt="volina" class="nav__brand-img nav__brand-img--dark" style="height: 46px; width: 108px" />
+    </a>
+    <nav class="nav__pill" aria-label="Ana navigasyon">
+      <a href="#nasil">Nasıl Çalışır</a>
+      <span class="nav__dot" aria-hidden="true"></span>
+      <a href="#ozellikler">Özellikler</a>
+      <span class="nav__dot" aria-hidden="true"></span>
+      <a href="#sayilar">Sayılar</a>
+      <span class="nav__dot" aria-hidden="true"></span>
+      <a href="#sss">SSS</a>
+    </nav>
+    <a href="https://dashboard.volina.ai/login" target="_blank" rel="noopener" class="btn btn--primary nav__cta">
+      <span>Kullanıcı Paneli</span>
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="section section--white hero hero--video" id="top">
+  <video class="hero__video" autoplay muted loop playsinline preload="auto" poster="">
+    <source src="assets/hero-bg.mp4" type="video/mp4" />
+  </video>
+  <div class="hero__scrim" aria-hidden="true"></div>
+  <div class="container">
+    <h1 class="hero__title reveal">Eski leadlerini
+<span style="color: #e8623f; font-style: italic">gelire dönüştür</span></h1>
+    <p class="hero__sub reveal">Kliniğinin yıllar içinde biriktirdiği ve reklamına para harcadığı ama 
+herkesin takip etmeyi bıraktığı binlerce eski leadi satışa çevir.</p>
+    <div class="hero__ctas reveal">
+      <a href="https://www.cal.eu/volina/30min?user=volina" target="_blank" rel="noopener" class="btn btn--primary btn--lg">
+        <span>Hemen başla</span>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <div class="hero__stats reveal">
+      <div><strong>2 gün</strong><span>kurulum süresi</span></div>
+      <div class="hero__divider" aria-hidden="true"></div>
+      <div><strong>0 TL</strong><span>ek reklam bütçesi</span></div>
+      <div class="hero__divider" aria-hidden="true"></div>
+      <div><strong>%20</strong><span>gelir artışı</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TESTIMONIAL ===================== -->
+<section class="section section--white testimonial">
+  <div class="container testimonial__inner">
+    <figure class="testimonial__quote reveal">
+      <blockquote>
+        "CRM'imizde yıllardır uyuyan binlerce lead vardı. Volina ile <strong>iki hafta içinde canlıya geçtik</strong> ve bu eski leadlerin önemli bir kısmı yeniden randevuya döndü. En önemlisi, <strong>hasta deneyimimizden ödün vermeden</strong> bunu başardık."
+      </blockquote>
+      <figcaption class="testimonial__by">
+        <img src="assets/partner-anatolia.webp" alt="Anatolia Dental" class="testimonial__by-logo" />
+        <span class="testimonial__by-text"><strong>Dr. Elif Kaya</strong>Klinik Direktörü</span>
+      </figcaption>
+    </figure>
+    <div class="testimonial__trust reveal">
+      <span class="testimonial__trust-label">Önde gelen klinikler güveniyor</span>
+      <div class="testimonial__trust-grid">
+        <div class="logo"><img src="assets/partner-smile.webp" alt="Smile and Holiday" loading="lazy" /></div>
+        <div class="logo"><img src="assets/partner-lumia.webp" alt="LumiaClinic" loading="lazy" /></div>
+        <div class="logo"><img src="assets/partner-bosphorus.webp" alt="Bosphorus Dental" loading="lazy" /></div>
+        <div class="logo"><img src="assets/partner-ahmet.webp" alt="Ahmet Yardımcı Academy" loading="lazy" /></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PARTNERS MARQUEE ===================== -->
+<section class="partners" aria-label="Çalışma ortaklarımız">
+  <div class="container partners__head">
+    <span class="partners__dot" aria-hidden="true"></span>
+    <span class="partners__label">Çalışma Ortaklarımız</span>
+    <span class="partners__dot" aria-hidden="true"></span>
+  </div>
+  <div class="partners__track-wrap">
+    <div class="partners__track">
+      <div class="partners__row" aria-hidden="false">
+        <div class="logo"><img src="assets/partner-smile.webp" alt="Smile and Holiday" loading="lazy"/></div>
+        <div class="logo"><img src="assets/partner-lumia.webp" alt="LumiaClinic" loading="lazy"/></div>
+        <div class="logo"><img src="assets/partner-bosphorus.webp" alt="Bosphorus Dental" loading="lazy"/></div>
+        <div class="logo"><img src="assets/partner-anatolia.webp" alt="Anatolia Dental" loading="lazy"/></div>
+        <div class="logo"><img src="assets/partner-ahmet.webp" alt="Ahmet Yardımcı Academy" loading="lazy"/></div>
+      </div>
+      <div class="partners__row" aria-hidden="true">
+        <div class="logo"><img src="assets/partner-smile.webp" alt="Smile and Holiday" loading="lazy"/></div>
+        <div class="logo"><img src="assets/partner-lumia.webp" alt="LumiaClinic" loading="lazy"/></div>
+        <div class="logo"><img src="assets/partner-bosphorus.webp" alt="Bosphorus Dental" loading="lazy"/></div>
+        <div class="logo"><img src="assets/partner-anatolia.webp" alt="Anatolia Dental" loading="lazy"/></div>
+        <div class="logo"><img src="assets/partner-ahmet.webp" alt="Ahmet Yardımcı Academy" loading="lazy"/></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DASHBOARD SHOWCASE ===================== -->
+<section class="section section--white dash-showcase">
+  <!-- Dashboard mockup -->
+  <div class="hero__dash-wrap reveal">
+    <div class="dashboard" id="liveDash">
+      <div class="dashboard__chrome">
+        <div class="dashboard__lights"><span></span><span></span><span></span></div>
+        <div class="dashboard__url">dashboard.volina.ai</div>
+      </div>
+      <div class="dashboard__body">
+        <aside class="dashboard__side">
+          <div class="side__brand"><img src="assets/volina-favicon.png" alt="" style="width:30px;height:22px;padding:0;margin:0;border-radius:5px;object-fit:scale-down" /><span>Anatolia Klinik</span></div>
+          <nav class="side__nav">
+            <a class="is-active"><span class="dot"></span>Panel</a>
+            <a>Leadler
+11,420</a>
+            <a><span class="dot"></span>Kampanyalar</a>
+            <a><span class="dot"></span>Funnel</a>
+            <a><span class="dot"></span>Aramalar</a>
+          </nav>
+          <div class="side__campaign">
+            <div class="side__campaign-label">Aktif kampanya</div>
+            <div class="side__campaign-name">2023 leadleri</div>
+            <div class="side__campaign-meter"><span style="width:64%"></span></div>
+            <div class="side__campaign-stat">7,310 / 11,420 arandı</div>
+          </div>
+        </aside>
+        <main class="dashboard__main">
+          <div class="dash-row">
+            <div class="kpi">
+              <div class="kpi__label">Bugün arandı</div>
+              <div class="kpi__value">612</div>
+              <div class="kpi__trend kpi__trend--up">↗ %12</div>
+            </div>
+            <div class="kpi">
+              <div class="kpi__label">Satışa hazır lead</div>
+              <div class="kpi__value">28</div>
+              <div class="kpi__trend kpi__trend--up">↗ 6 yeni</div>
+            </div>
+            <div class="kpi">
+              <div class="kpi__label">Ortalama arama</div>
+              <div class="kpi__value">1:04</div>
+              <div class="kpi__trend">—</div>
+            </div>
+            <div class="kpi">
+              <div class="kpi__label">Dönüşüm oranı</div>
+              <div class="kpi__value">%4.6</div>
+              <div class="kpi__trend kpi__trend--up">↗ %1.1</div>
+            </div>
+          </div>
+
+          <div class="dash-row dash-row--split">
+            <div class="card card--live">
+              <header>
+                <span class="card__tag"><span class="live-dot"></span>Az önce tamamlandı</span>
+                <span class="card__meta">01:42 · Sarah</span>
+              </header>
+              <div class="live-lead">
+                <div class="live-lead__avatar">MD</div>
+                <div>
+                  <div class="live-lead__name">Marie D. <span>· Fransa</span></div>
+                  <div class="live-lead__meta">Facebook · Mart 2023 · 18 ay sessiz</div>
+                </div>
+                <div class="live-lead__score">
+                  <div class="live-lead__score-bar"><span style="width:92%"></span></div>
+                  <span class="live-lead__score-label">İlgi 92</span>
+                </div>
+              </div>
+              <ul class="summary">
+                <li><span class="summary__k">İlgi</span><span class="summary__v">Türkiye'de tatil + diş tedavisi paketi</span></li>
+                <li><span class="summary__k">Çekince</span><span class="summary__v">Süreç bilinmiyor, "şu an değil" itirazı</span></li>
+                <li><span class="summary__k">Kişilik</span><span class="summary__v">Temkinli → meraklı</span></li>
+                <li><span class="summary__k">Karar</span><span class="summary__v summary__v--accent">Görüşme planlandı — Çarşamba akşam</span></li>
+              </ul>
+              <footer class="live-meta">
+                <span class="tag">Niyet: yüksek</span>
+                <span class="tag">CRM'e kaydedildi</span>
+                <span class="tag tag--accent">→ Görüşmeye yönlendir</span>
+              </footer>
+            </div>
+
+            <div class="card card--queue">
+              <header><span class="card__tag">Sıradaki aramalar</span><span class="card__meta">otomatik</span></header>
+              <ul class="queue">
+                <li><span class="q-time">14:32</span><span class="q-name">Burak A.</span><span class="q-meta">2022 leadi · 22 ay sessiz</span><span class="q-status q-status--soon">3 dk</span></li>
+                <li><span class="q-time">14:35</span><span class="q-name">Ayşe T.</span><span class="q-meta">2023 leadi · 14 ay sessiz</span><span class="q-status q-status--soon">6 dk</span></li>
+                <li><span class="q-time">14:41</span><span class="q-name">Cem D.</span><span class="q-meta">2024 leadi · 9 ay sessiz</span><span class="q-status">12 dk</span></li>
+                <li><span class="q-time">14:47</span><span class="q-name">Zeynep Ö.</span><span class="q-meta">2023 leadi · 16 ay sessiz</span><span class="q-status">18 dk</span></li>
+                <li><span class="q-time">14:53</span><span class="q-name">Hakan E.</span><span class="q-meta">2022 leadi · 26 ay sessiz</span><span class="q-status">24 dk</span></li>
+              </ul>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== HOW IT WORKS / CALL SIM ===================== -->
+<section class="section section--teal howto" id="nasil">
+  <div class="container" style="color: rgb(255, 255, 255)">
+    <div class="eyebrow reveal"><span class="pill pill--ghost">Nasıl çalışır</span></div>
+    <h2 class="display reveal">Bir aramanın
+<span style="color: #e8623f; font-style: italic">80 saniyesi</span></h2>
+    <p class="lede reveal" style="color: rgb(255, 255, 255); max-width: 780px">Aşağıdaki örnek, gerçek bir Volina aramasıdır. Oynat'a bas, Volina'nın leadi nasıl okuduğunu, niyeti nasıl anladığını ve neye göre transfer kararı verdiğini kendin gör.</p>
+
+    <div class="howto__player reveal">
+      <div class="player">
+        <header class="player__head">
+          <div class="player__caller">
+            <div class="player__avatar">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 13a4 4 0 100-8 4 4 0 000 8zm-7 7c0-3.314 3.134-6 7-6s7 2.686 7 6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <div class="player__name">+353 01 ********</div>
+              <div class="player__meta">Elizabeth L. · 2022 leadi · 51 ay sessiz</div>
+            </div>
+          </div>
+        </header>
+
+        <div class="player__waves" id="waves">
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+
+        <div class="player__lines" id="callLines"></div>
+
+        <div class="player__signals">
+          <div class="signal" data-step="0">
+            <div class="signal__k">Kişilik</div>
+            <div class="signal__v" id="sigPersona">—</div>
+          </div>
+          <div class="signal" data-step="1">
+            <div class="signal__k">SKOR</div>
+            <div class="signal__v"><div class="signal__bar"><span id="sigBar" style="width:0%"></span></div><em id="sigPct">0</em></div>
+          </div>
+          <div class="signal" data-step="2">
+            <div class="signal__k">Karar</div>
+            <div class="signal__v" id="sigDecision">satış temsilcisine yönlendir</div>
+          </div>
+        </div>
+
+        <footer class="player__foot">
+          <button class="btn btn--primary btn--md" id="playBtn">
+            <svg viewBox="0 0 16 16" aria-hidden="true" id="playIcon"><path d="M5 3.5v9l8-4.5-8-4.5z" fill="currentColor"/></svg>
+            <span id="playLabel">Aramayı dinle</span>
+          </button>
+          <button class="btn btn--ghost-dark btn--md" id="resetBtn">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8a5 5 0 105-5M3 4v4h4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Baştan al</span>
+          </button>
+        </footer>
+      </div>
+
+      <ol class="howto__steps">
+        <li class="reveal"><span class="howto__n">01</span><div><strong>Arama</strong><p>Volina CRM'den leadi çeker, numarayı arar.</p></div></li>
+        <li class="reveal"><span class="howto__n">02</span><div><strong>Hafıza</strong><p>Hasta adı, bilgileri, ve geçmişi hafızasında bulunur.</p></div></li>
+        <li class="reveal"><span class="howto__n">03</span><div><strong>İlk 10 saniye</strong><p>Ses tonu, kelime hızı ve cümle yapısınından kişilik tipini analizini yapar.</p></div></li>
+        <li class="reveal"><span class="howto__n">04</span><div><strong>Adaptasyon</strong><p>Konuşma stili değişir: analitik için fiyat, duygusal için sonuç odaklı yaklaşır.</p></div></li>
+        <li class="reveal"><span class="howto__n">05</span><div><strong>İtiraz yönetimi</strong><p>"Pahalı", "düşüneyim", "şu an değil" sinyallerine hazır cevaplar verir.</p></div></li>
+        <li class="reveal"><span class="howto__n">06</span><div><strong>Niyet skoru</strong><p>Her cümle skoru günceller. 70+ ise sıcak hastadır.</p></div></li>
+        <li class="reveal"><span class="howto__n">07</span><div><strong>Karar</strong><p>Düşük ise nazik bir kapanış, yüksek ise satış ekibine transfer eder.</p></div></li>
+        <li class="reveal"><span class="howto__n">08</span><div><strong>CRM</strong><p>Transkript, konuşma özeti ve skoru kaydeder.</p></div></li>
+        <li class="reveal"><span class="howto__n">09</span><div><strong>Takip</strong><p>Düşük skorlu leadler otomatik olarak takvime alınır ve tekrar aranır.</p></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FEATURES (STICKY) ===================== -->
+<section class="section section--white features" id="ozellikler">
+  <div class="container container--wide">
+    <div class="eyebrow reveal"><span class="pill">Özellikler</span></div>
+    <h2 class="display reveal" style="color: rgb(14, 77, 92)">
+      Volina bir satış botu <span style="color: #e8623f; font-style: italic">değildir</span>
+    </h2>
+
+    <div class="features__layout">
+      <div class="features__col">
+        <article class="feature reveal">
+          <div class="feature__k">01 — Kişilik analizi</div>
+          <h3 style="color: #0e4d5c">İlk 10 saniyede kim olduğunu okur</h3>
+          <p>Volina, açılış cümlesinden kişilik tipini çıkarır. Analitik bir lead'le fiyatı önce konuşur; duygusal bir lead'le önce sonucu. Bu, robot gibi konuşmayan bir yapay zekanın tek yolu.</p>
+          <ul class="feature__list">
+            <li>4 kişilik profili (analitik, duygusal, dominant, kararsız)</li>
+            <li>Konuşma hızı, cümle uzunluğu, ses tonu ölçümü</li>
+            <li>Her cevapta profil güncellenir</li>
+          </ul>
+        </article>
+
+        <article class="feature reveal">
+          <div class="feature__k">02 — Niyet skoru</div>
+          <h3 style="color: rgb(14, 77, 92)">Lead'in ilgisini, gerçek zamanlı ölçer</h3>
+          <p>Sorular, ses tonu, "evet ama" kalıpları, her sinyal puanlanır. 70'ın üstündeki her lead, satış ekibine anında transfer edilir. Altındakiler için bir takip aramasına geri konur.</p>
+          <ul class="feature__list">
+            <li>0–100 arası skor</li>
+            <li>Konuşma sonrasında ekibe bildirim</li>
+            <li>Düşük niyetli ise 30 gün sonra arama</li>
+          </ul>
+        </article>
+
+        <article class="feature reveal">
+          <div class="feature__k">03 — Satış yok</div>
+          <h3 style="color: rgb(14, 77, 92)">Amacı satmak değil, niyeti anlamak</h3>
+          <p>Hedef randevu kapatmak değil; hastanın hâlâ ilgili olup olmadığını anlamak. Niyet düşükse nazikçe kapatır, baskı yapmaz. Yüksekse, satış ekibine yönlendirir.</p>
+          <ul class="feature__list">
+            <li>Randevu zorlamaz, fiyat dayatmaz</li>
+            <li>Niyeti olmayan lead'i nazikçe kapatır</li>
+            <li>Sadece satışa hazır adayları ekibe iletir</li>
+          </ul>
+        </article>
+
+        <article class="feature reveal">
+          <div class="feature__k">04 — Gerçekçi, doğal ses</div>
+          <h3 style="color: rgb(14, 77, 92)">Hasta, "AI" olduğunu anlamıyor</h3>
+          <p>Volina, "yapay zeka" gibi konuşmaz. Vurgular, duraksamalar, geri dönüşler insan gibidir. Test aramalarımızda %98 oranında hasta, Volina'nın insan olduğunu düşündü.</p>
+          <ul class="feature__list">
+            <li>İngiltere, İrlanda, vb. aksanlara adapte</li>
+            <li>Doğal duraksama ve düzeltme</li>
+            <li>İstersen, ekipteki kişinin sesiyle klonlanabilir</li>
+          </ul>
+        </article>
+
+      </div>
+
+      <aside class="features__sticky">
+        <div class="features__sticky-inner">
+          <!-- Card 1 — Hot lead, ready to transfer -->
+          <div class="dashboard dashboard--sm reveal" id="featureDash">
+            <div class="dashboard__chrome">
+              <div class="dashboard__lights"><span></span><span></span><span></span></div>
+              <div class="dashboard__url">dashboard.volina.ai</div>
+            </div>
+            <div class="dashboard__body dashboard__body--single">
+              <div class="lead-detail" id="leadDetail">
+                <header class="lead-detail__head">
+                  <div>
+                    <div class="lead-detail__name">Mary L.</div>
+                    <div class="lead-detail__meta">İrlanda · 2022 Instagram lead</div>
+                  </div>
+                  <span class="badge badge--accent">Satışa hazır</span>
+                </header>
+
+                <div class="lead-detail__panels">
+                  <div class="panel">
+                    <div class="panel__k">Kişilik</div>
+                    <div class="panel__chip">analitik</div>
+                    <div class="panel__chip panel__chip--soft">temkinli</div>
+                  </div>
+                  <div class="panel">
+                    <div class="panel__k">Niyet skoru</div>
+                    <div class="panel__score">
+                      <div class="panel__score-bar"><span style="width:78%"></span></div>
+                      <em>78 / 100</em>
+                    </div>
+                  </div>
+                  <div class="panel">
+                    <div class="panel__k">CRM kaynak</div>
+                    <div class="panel__chip panel__chip--soft">Excel/CSV</div>
+                    <div class="panel__chip panel__chip--soft">51 ay sessiz</div>
+                  </div>
+                  <div class="panel">
+                    <div class="panel__k">Sonraki adım</div>
+                    <div class="panel__chip panel__chip--accent">→ Satış ekibi</div>
+                  </div>
+                </div>
+
+                <div class="lead-detail__transcript">
+                  <div class="td-k">Transkript özeti</div>
+                  <p>"Fiyat sebebiyle ertelemiş. Tedaviyi hala yaptırmamış, yakın zamanda yaptırmak istiyor. Sıcak hasta."</p>
+                </div>
+
+                <footer class="lead-detail__foot">
+                  <span class="dot dot--live"></span>
+                  <span>Arama 02:17 · Volina tarafından yapıldı</span>
+                </footer>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 — Mid intent, scheduled for follow-up -->
+          <div class="dashboard dashboard--sm reveal">
+            <div class="dashboard__chrome">
+              <div class="dashboard__lights"><span></span><span></span><span></span></div>
+              <div class="dashboard__url">dashboard.volina.ai</div>
+            </div>
+            <div class="dashboard__body dashboard__body--single">
+              <div class="lead-detail">
+                <header class="lead-detail__head">
+                  <div>
+                    <div class="lead-detail__name">James W.</div>
+                    <div class="lead-detail__meta">İngiltere · 2023 Google Ads lead</div>
+                  </div>
+                  <span class="badge">Takip aramasında</span>
+                </header>
+
+                <div class="lead-detail__panels">
+                  <div class="panel">
+                    <div class="panel__k">Kişilik</div>
+                    <div class="panel__chip">duygusal</div>
+                    <div class="panel__chip panel__chip--soft">kararsız</div>
+                  </div>
+                  <div class="panel">
+                    <div class="panel__k">Niyet skoru</div>
+                    <div class="panel__score">
+                      <div class="panel__score-bar"><span style="width:46%"></span></div>
+                      <em>46 / 100</em>
+                    </div>
+                  </div>
+                  <div class="panel">
+                    <div class="panel__k">CRM kaynak</div>
+                    <div class="panel__chip panel__chip--soft">HubSpot</div>
+                    <div class="panel__chip panel__chip--soft">22 ay sessiz</div>
+                  </div>
+                  <div class="panel">
+                    <div class="panel__k">Sonraki adım</div>
+                    <div class="panel__chip">↻ 30 gün sonra ara</div>
+                  </div>
+                </div>
+
+                <div class="lead-detail__transcript">
+                  <div class="td-k">Transkript özeti</div>
+                  <p>"Eşi ile konuşmak istiyor, fiyat aralığı uygun ama henüz karar verememiş . İlgi sıcak ama zaman lazım."</p>
+                </div>
+
+                <footer class="lead-detail__foot">
+                  <span class="dot" style="background-color: rgb(232, 98, 63)"></span>
+                  <span>Arama 03:02 · Volina tarafından yapıldı</span>
+                </footer>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 — Very hot, immediate booking -->
+          <div class="dashboard dashboard--sm reveal">
+            <div class="dashboard__chrome">
+              <div class="dashboard__lights"><span></span><span></span><span></span></div>
+              <div class="dashboard__url">dashboard.volina.ai</div>
+            </div>
+            <div class="dashboard__body dashboard__body--single">
+              <div class="lead-detail">
+                <header class="lead-detail__head">
+                  <div>
+                    <div class="lead-detail__name">Michael R.</div>
+                    <div class="lead-detail__meta">Amerika · 2023 Facebook lead</div>
+                  </div>
+                  <span class="badge badge--accent">Satışa hazır</span>
+                </header>
+
+                <div class="lead-detail__panels">
+                  <div class="panel">
+                    <div class="panel__k">Kişilik</div>
+                    <div class="panel__chip">dominant</div>
+                    <div class="panel__chip panel__chip--soft">kararlı</div>
+                  </div>
+                  <div class="panel">
+                    <div class="panel__k">Niyet skoru</div>
+                    <div class="panel__score">
+                      <div class="panel__score-bar"><span style="width:94%"></span></div>
+                      <em>94 / 100</em>
+                    </div>
+                  </div>
+                  <div class="panel">
+                    <div class="panel__k">CRM kaynak</div>
+                    <div class="panel__chip panel__chip--soft">Zoho</div>
+                    <div class="panel__chip panel__chip--soft">8 ay sessiz</div>
+                  </div>
+                  <div class="panel">
+                    <div class="panel__k">Sonraki adım</div>
+                    <div class="panel__chip panel__chip--accent">→ Satış ekibi</div>
+                  </div>
+                </div>
+
+                <div class="lead-detail__transcript">
+                  <div class="td-k">Transkript özeti</div>
+                  <p>"Bu hafta İstanbul'da olacak, doktorla görüşme istiyor. Bütçe konusunda esnek, hemen tedaviye başlamak istiyor."</p>
+                </div>
+
+                <footer class="lead-detail__foot">
+                  <span class="dot dot--live"></span>
+                  <span>Arama 01:21 · Volina tarafından yapıldı</span>
+                </footer>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== NUMBERS ===================== -->
+<section class="section section--teal numbers" id="sayilar">
+  <div class="container">
+    <div class="eyebrow reveal"><span class="pill pill--ghost">Sayılar</span></div>
+    <h2 class="display reveal">Bir pilot haftasında,<br /><span style="color: #e8623f">ortalama bir klinik için</span></h2>
+
+    <div class="numbers__grid">
+      <div class="numbers__cell reveal">
+        <div class="numbers__big" data-n="12840" data-suffix="">0</div>
+        <div class="numbers__cap">Aranan eski lead</div>
+      </div>
+      <div class="numbers__cell reveal">
+        <div class="numbers__big" data-n="412" data-suffix="">0</div>
+        <div class="numbers__cap">Cevaplayan ve görüşen</div>
+      </div>
+      <div class="numbers__cell reveal">
+        <div class="numbers__big" data-n="58" data-suffix="">0</div>
+        <div class="numbers__cap">Satışa hazır transfer</div>
+      </div>
+      <div class="numbers__cell reveal">
+        <div class="numbers__big" data-n="11" data-suffix="x">0</div>
+        <div class="numbers__cap">Reklam ROI'sine göre kazanç katı</div>
+      </div>
+    </div>
+
+    <div class="numbers__strip reveal">
+      <span>—</span>
+      <span>İrlanda · İngiltere · Fransa · Amerika</span>
+      <span>—</span>
+      <span>5+ klinik ile pilot</span>
+      <span>—</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="section section--white faq" id="sss">
+  <div class="container container--narrow">
+    <div class="eyebrow reveal"><span class="pill">Sıkça Sorulan Sorular</span></div>
+    <h2 class="display reveal" style="color: #0e4d5c">
+      Klinik sahiplerinin <em>
+sık sorduğu şeyler</em>
+    </h2>
+
+    <div class="faq__list">
+      <details class="faq__item reveal">
+        <summary><span>Hasta, karşısındakinin yapay zeka olduğunu anlar mı?</span><span class="faq__plus"></span></summary>
+        <p>Pilot çalışmalarımızda hastaların %98'si konuşmanın sonuna kadar Volina'nın insan olduğunu düşündü. Hastanın "Sen yapay zeka mısın?" sorusuna her zaman dürüstlük ile cevap verilmiştir ve bu durum herhangi bir hastada sorun teşkil etmemiştir.</p>
+      </details>
+      <details class="faq__item reveal">
+        <summary><span>Satış ekibimin yerini mi alıyor?</span><span class="faq__plus"></span></summary>
+        <p>Volina'nın tek amacı, satış danışmanlarının üzerinden geçip geçtiği eski ve ölü CRM leadlerini arayarak hâlâ ilgili olanları tespit etmektir. Sıcak gelen leadler satış ekibine yönlendirilir, Volina'nın odağı ölü leadlerdir.</p>
+      </details>
+      <details class="faq__item reveal">
+        <summary><span>Soğuk aramalar klinik  itibarıma zarar verir mi? </span><span class="faq__plus"></span></summary>
+        <p>Hayır. Volina aramaları doğal, profesyonel ve izinli veri üzerinden gerçekleştirir. Amaç rahatsız etmek değil, hâlâ ilgisi olan potansiyel müşterileri tespit etmektir</p>
+      </details>
+      <details class="faq__item reveal">
+        <summary><span>Ne kadar eski leadleri arayabilirim?</span><span class="faq__plus"></span></summary>
+        <p>3 yıl ve daha eski leadlerde bile %4–7 arasında sıcak dönüş gördük. Genel kuralımız: en az 30 gün hareket etmemiş her lead, Volina'nın hedefidir.</p>
+      </details>
+      <details class="faq__item reveal">
+        <summary><span>Fiyatlandırma nasıl?</span><span class="faq__plus"></span></summary>
+        <p>Fiyatlandırma, lead sayısına ve arama hacmine göre kişiye özel belirleniyor. Sabit bir paket yok, ihtiyacınıza göre en uygun fiyat sağlanmaya çalışılıyor. Detaylar için bizimle iletişime geçin.</p>
+      </details>
+      <details class="faq__item reveal">
+        <summary><span>KVKK'ya uygun mu?</span><span class="faq__plus"></span></summary>
+        <p>Volina, tüm görüşme kayıtlarını ve müşteri bilgilerini KVKK ve GDPR standartlarına uygun şekilde şifreli olarak saklar. Verileriniz yalnızca size aittir ve gerekli olmadıkça üçüncü taraflarla paylaşılmaz.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FINAL CTA ===================== -->
+<section class="section section--teal final" id="demo">
+  <div class="container">
+    <div class="final__card reveal">
+      <div class="final__left">
+        <h2 class="display display--white">
+          Ölü sandığın leadler<br />
+          <em>aranmayı bekliyor.</em>
+        </h2>
+        <div class="hero__ctas">
+          <a href="https://www.cal.eu/volina/30min?user=volina" target="_blank" rel="noopener" class="btn btn--primary btn--lg">
+            <span>Pilot başlat</span>
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <img src="assets/volina-wordmark.png" alt="volina" />
+      <p>Diş turizmi klinikleri için, ölü leadleri uyandıran yapay zeka ses asistanı.</p>
+      <a href="mailto:info@volina.ai" class="footer__email">info@volina.ai</a>
+      <div class="footer__socials">
+        <a href="https://www.instagram.com/volina.ai/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.7"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/volina-ai/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="1.7"/><path d="M7 10v7M7 7.2v.01M11 17v-4a2 2 0 0 1 4 0v4M11 10v7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer__cols">
+      <div>
+        <h4>Ürün</h4>
+        <a href="#nasil">Nasıl çalışır</a>
+        <a href="#ozellikler">Özellikler</a>
+        <a href="#sayilar">Sayılar</a>
+      </div>
+      <div>
+        <h4>Şirket</h4>
+        <a href="#">Hakkımızda</a>
+        <a href="#">Blog</a>
+        <a href="#">Kariyer</a>
+        <a href="mailto:info@volina.ai">İletişim</a>
+      </div>
+      <div>
+        <h4>Yasal</h4>
+        <a href="gizlilik-politikasi.html">Gizlilik politikası</a>
+        <a href="#">KVKK</a>
+        <a href="#">Aydınlatma metni</a>
+        <a href="#">Çerez politikası</a>
+      </div>
+    </div>
+  </div>
+  <div class="container footer__base">
+    <span>© 2026 Volina AI. Tüm hakları saklıdır.</span>
+    <span>İstanbul · Ankara</span>
+  </div>
+</footer>
+
+<!-- ===================== TWEAKS PANEL ===================== -->
+<div id="tweaks" class="tweaks" hidden>
+  <header class="tweaks__head">
+    <div>Tweaks</div>
+    <button id="tweaksClose" aria-label="Kapat">×</button>
+  </header>
+  <div class="tweaks__body">
+    <div class="tweaks__group">
+      <label>Manşet</label>
+      <div class="tweaks__radios" id="tHeadline">
+        <button data-val="default" class="is-on">Orijinal</button>
+        <button data-val="dead">Ölü değil — uyuyor.</button>
+        <button data-val="paid">Reklamına ödedin. Aramadın.</button>
+      </div>
+    </div>
+    <div class="tweaks__group">
+      <label>Aksan rengi</label>
+      <div class="tweaks__swatches" id="tAccent">
+        <button data-val="#E8623F" class="is-on" style="background:#E8623F"></button>
+        <button data-val="#D9A441" style="background:#D9A441"></button>
+        <button data-val="#1F7A56" style="background:#1F7A56"></button>
+        <button data-val="#3A86C9" style="background:#3A86C9"></button>
+      </div>
+    </div>
+    <div class="tweaks__group">
+      <label>Başlık fontu</label>
+      <div class="tweaks__radios" id="tFont">
+        <button data-val="sans" class="is-on">Modern (Inter)</button>
+        <button data-val="serif">Editorial (serif)</button>
+      </div>
+    </div>
+    <div class="tweaks__group">
+      <label>Yoğunluk</label>
+      <div class="tweaks__radios" id="tDensity">
+        <button data-val="airy" class="is-on">Havalı</button>
+        <button data-val="compact">Yoğun</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script id="__tweak_defaults" type="application/json">/*EDITMODE-BEGIN*/{
+  "headline": "default",
+  "accent": "#E8623F",
+  "font": "sans",
+  "density": "airy"
+}/*EDITMODE-END*/</script>
+
+<script src="app.js" defer></script>
+</body>
+</html>
