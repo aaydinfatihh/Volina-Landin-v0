@@ -228,6 +228,36 @@ img {
   background: var(--color-accent);
 }
 
+/* ===== Call transcript scroll area ===== */
+.call-lines-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+  -webkit-mask-image: linear-gradient(
+    180deg,
+    transparent 0,
+    #000 10px,
+    #000 calc(100% - 10px),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    180deg,
+    transparent 0,
+    #000 10px,
+    #000 calc(100% - 10px),
+    transparent 100%
+  );
+}
+.call-lines-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.call-lines-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 3px;
+}
+.call-lines-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
 /* ===== Call line bubbles ===== */
 .call-line {
   display: grid;
