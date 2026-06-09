@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useLanguage } from "@/lib/i18n";
 
 const logos = [
   { src: "/assets/partner-smile.webp", alt: "Smile and Holiday" },
@@ -24,10 +27,11 @@ function Logo({ src, alt }: { src: string; alt: string }) {
 }
 
 export default function Partners() {
+  const { t } = useLanguage();
   return (
     <section
       className="bg-surface-2 pt-14 pb-16 overflow-hidden border-y border-teal/[0.06]"
-      aria-label="Çalışma ortaklarımız"
+      aria-label={t.partners.label}
     >
       <div className="max-w-[1180px] mx-auto px-8 flex items-center justify-center gap-3.5 mb-9">
         <span
@@ -35,7 +39,7 @@ export default function Partners() {
           aria-hidden="true"
         />
         <span className="font-sans text-xl font-semibold text-ink tracking-[-0.01em]">
-          Çalışma Ortaklarımız
+          {t.partners.label}
         </span>
         <span
           className="w-1 h-1 rounded-full bg-volina-gray opacity-50"

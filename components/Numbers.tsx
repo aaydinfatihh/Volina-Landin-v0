@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Reveal from "./Reveal";
+import { useLanguage } from "@/lib/i18n";
 
 type CellProps = {
   target: number;
@@ -10,6 +11,7 @@ type CellProps = {
 };
 
 function NumberCell({ target, suffix = "", caption }: CellProps) {
+  const { lang } = useLanguage();
   const [value, setValue] = useState(0);
   const ref = useRef<HTMLDivElement | null>(null);
   const startedRef = useRef(false);
@@ -44,7 +46,9 @@ function NumberCell({ target, suffix = "", caption }: CellProps) {
 
   const rounded = Math.round(value);
   const formatted =
-    target >= 1000 ? rounded.toLocaleString("tr-TR") : rounded.toString();
+    target >= 1000
+      ? rounded.toLocaleString(lang === "tr" ? "tr-TR" : "en-US")
+      : rounded.toString();
 
   return (
     <Reveal>
@@ -64,7 +68,16 @@ function NumberCell({ target, suffix = "", caption }: CellProps) {
   );
 }
 
+const TARGETS = [
+  { target: 12840, suffix: "" },
+  { target: 412, suffix: "" },
+  { target: 58, suffix: "" },
+  { target: 11, suffix: "x" },
+];
+
 export default function Numbers() {
+  const { t } = useLanguage();
+  const n = t.numbers;
   return (
     <section
       id="sayilar"
@@ -73,31 +86,31 @@ export default function Numbers() {
       <div className="max-w-[1320px] mx-auto px-8">
         <Reveal className="mb-7">
           <span className="inline-flex items-center gap-2 bg-white/[0.08] text-white/[0.92] py-[7px] px-3.5 pl-3 rounded-full text-[13px] font-medium tracking-[-0.005em] border border-white/[0.16]">
-            Sayılar
+            {n.eyebrow}
           </span>
         </Reveal>
         <Reveal as="h2" className="display">
-          Bir pilot haftasında,
+          {n.titleLead}
           <br />
-          <span style={{ color: "#e8623f" }}>ortalama bir klinik için</span>
+          <span style={{ color: "#e8623f" }}>{n.titleAccent}</span>
         </Reveal>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-12 mt-16 mb-20">
-          <NumberCell target={12840} caption="Aranan eski lead" />
-          <NumberCell target={412} caption="Cevaplayan ve görüşen" />
-          <NumberCell target={58} caption="Satışa hazır transfer" />
-          <NumberCell
-            target={11}
-            suffix="x"
-            caption="Reklam ROI'sine göre kazanç katı"
-          />
+          {TARGETS.map((cell, i) => (
+            <NumberCell
+              key={i}
+              target={cell.target}
+              suffix={cell.suffix}
+              caption={n.cells[i].caption}
+            />
+          ))}
         </div>
 
         <Reveal className="flex gap-6 items-center justify-center flex-wrap pt-10 border-t border-white/[0.12] font-mono text-xs text-white/55 tracking-[0.04em]">
           <span>—</span>
-          <span>İrlanda · İngiltere · Fransa · Amerika</span>
+          <span>{n.strip[0]}</span>
           <span>—</span>
-          <span>5+ klinik ile pilot</span>
+          <span>{n.strip[1]}</span>
           <span>—</span>
         </Reveal>
       </div>

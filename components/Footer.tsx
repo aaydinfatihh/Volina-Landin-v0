@@ -1,9 +1,16 @@
+"use client";
+
 import Image from "next/image";
+import Link from "next/link";
+import { useLanguage } from "@/lib/i18n";
 
 export default function Footer() {
+  const { t } = useLanguage();
+  const f = t.footer;
+
   return (
     <footer className="bg-ink text-white/60 pt-20 pb-8 text-sm">
-      <div className="max-w-[1180px] mx-auto px-8 grid grid-cols-1 lg:grid-cols-[1.4fr_2fr] gap-15 pb-15 border-b border-white/[0.08]">
+      <div className="max-w-[1180px] mx-auto px-8 grid grid-cols-1 lg:grid-cols-[1.4fr_2fr] gap-15 pb-15 border-b border-white/[0.08] max-md:px-6">
         <div>
           <Image
             src="/assets/volina-wordmark.png"
@@ -14,8 +21,7 @@ export default function Footer() {
             className="brightness-0 invert opacity-90 mb-4"
           />
           <p className="max-w-[36ch] leading-[1.55] text-[13.5px] m-0">
-            Diş turizmi klinikleri için, ölü leadleri uyandıran yapay zeka ses
-            asistanı.
+            {f.tagline}
           </p>
           <a
             href="mailto:info@volina.ai"
@@ -61,60 +67,51 @@ export default function Footer() {
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
           <div>
             <h4 className="font-sans font-medium text-[13px] text-white tracking-[0.02em] m-0 mb-[18px] uppercase">
-              Ürün
+              {f.productTitle}
             </h4>
-            <a className="block py-1 text-white/55 text-sm hover:text-white" href="#nasil">
-              Nasıl çalışır
-            </a>
-            <a className="block py-1 text-white/55 text-sm hover:text-white" href="#ozellikler">
-              Özellikler
-            </a>
-            <a className="block py-1 text-white/55 text-sm hover:text-white" href="#sayilar">
-              Sayılar
-            </a>
+            {f.product.map((link) => (
+              <Link
+                key={link.label}
+                className="block py-1 text-white/55 text-sm hover:text-white"
+                href={link.href}
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
           <div>
             <h4 className="font-sans font-medium text-[13px] text-white tracking-[0.02em] m-0 mb-[18px] uppercase">
-              Şirket
+              {f.companyTitle}
             </h4>
-            <a className="block py-1 text-white/55 text-sm hover:text-white" href="#">
-              Hakkımızda
-            </a>
-            <a className="block py-1 text-white/55 text-sm hover:text-white" href="#">
-              Blog
-            </a>
-            <a className="block py-1 text-white/55 text-sm hover:text-white" href="#">
-              Kariyer
-            </a>
-            <a className="block py-1 text-white/55 text-sm hover:text-white" href="mailto:info@volina.ai">
-              İletişim
-            </a>
+            {f.company.map((link) => (
+              <Link
+                key={link.label}
+                className="block py-1 text-white/55 text-sm hover:text-white"
+                href={link.href}
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
           <div>
             <h4 className="font-sans font-medium text-[13px] text-white tracking-[0.02em] m-0 mb-[18px] uppercase">
-              Yasal
+              {f.legalTitle}
             </h4>
-            <a
-              className="block py-1 text-white/55 text-sm hover:text-white"
-              href="/gizlilik-politikasi"
-            >
-              Gizlilik politikası
-            </a>
-            <a className="block py-1 text-white/55 text-sm hover:text-white" href="#">
-              KVKK
-            </a>
-            <a className="block py-1 text-white/55 text-sm hover:text-white" href="#">
-              Aydınlatma metni
-            </a>
-            <a className="block py-1 text-white/55 text-sm hover:text-white" href="#">
-              Çerez politikası
-            </a>
+            {f.legal.map((link) => (
+              <Link
+                key={link.label}
+                className="block py-1 text-white/55 text-sm hover:text-white"
+                href={link.href}
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
         </div>
       </div>
-      <div className="max-w-[1180px] mx-auto px-8 flex justify-between pt-6 font-mono text-xs text-white/40 max-sm:flex-col max-sm:gap-2">
-        <span>© 2026 Volina AI. Tüm hakları saklıdır.</span>
-        <span>İstanbul · Ankara</span>
+      <div className="max-w-[1180px] mx-auto px-8 flex justify-between pt-6 font-mono text-xs text-white/40 max-sm:flex-col max-sm:gap-2 max-md:px-6">
+        <span>{f.copyright}</span>
+        <span>{f.location}</span>
       </div>
     </footer>
   );

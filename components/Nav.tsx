@@ -1,7 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useLanguage } from "@/lib/i18n";
 
 type Props = {
   variant?: "transparent" | "solid";
@@ -9,6 +12,8 @@ type Props = {
 
 export default function Nav({ variant = "transparent" }: Props) {
   const [scrolled, setScrolled] = useState(variant === "solid");
+  const { t, toggle } = useLanguage();
+  const pathname = usePathname();
 
   useEffect(() => {
     if (variant === "solid") {
@@ -21,8 +26,15 @@ export default function Nav({ variant = "transparent" }: Props) {
     return () => document.removeEventListener("scroll", onScroll);
   }, [variant]);
 
-  const navHref = variant === "solid" ? "/" : "#top";
-  const sectionPrefix = variant === "solid" ? "/" : "";
+  const links = [
+    { label: t.nav.home, href: "/" },
+    { label: t.nav.panel, href: "/panel" },
+    { label: t.nav.blog, href: "/blog" },
+    { label: t.nav.contact, href: "/iletisim" },
+  ];
+
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
     <header
@@ -32,9 +44,9 @@ export default function Nav({ variant = "transparent" }: Props) {
           : ""
       }`}
     >
-      <div className="max-w-[1320px] mx-auto px-11 grid grid-cols-[1fr_auto_1fr] items-center gap-[18px]">
-        <a
-          href={navHref}
+      <div className="max-w-[1320px] mx-auto px-11 grid grid-cols-[1fr_auto_1fr] items-center gap-[18px] max-md:px-6">
+        <Link
+          href="/"
           className="justify-self-start relative inline-block w-[108px] h-[46px]"
           aria-label="Volina"
         >
@@ -60,65 +72,62 @@ export default function Nav({ variant = "transparent" }: Props) {
               scrolled ? "opacity-100" : "opacity-0"
             }`}
           />
-        </a>
+        </Link>
         <nav
           className="hidden md:inline-flex items-center gap-1.5 bg-surface border border-teal/[0.08] py-[7px] px-4 rounded-full text-sm font-medium justify-self-center"
           aria-label="Ana navigasyon"
         >
-          <a
-            href={`${sectionPrefix}#nasil`}
-            className="px-2 py-1 text-teal rounded-full transition-colors duration-[160ms] ease-[var(--ease-volina)] hover:bg-teal/[0.08]"
-          >
-            Nasıl Çalışır
-          </a>
-          <span
-            className="w-0.5 h-0.5 rounded-full bg-teal/30"
-            aria-hidden="true"
-          />
-          <a
-            href={`${sectionPrefix}#ozellikler`}
-            className="px-2 py-1 text-teal rounded-full transition-colors duration-[160ms] ease-[var(--ease-volina)] hover:bg-teal/[0.08]"
-          >
-            Özellikler
-          </a>
-          <span
-            className="w-0.5 h-0.5 rounded-full bg-teal/30"
-            aria-hidden="true"
-          />
-          <a
-            href={`${sectionPrefix}#sayilar`}
-            className="px-2 py-1 text-teal rounded-full transition-colors duration-[160ms] ease-[var(--ease-volina)] hover:bg-teal/[0.08]"
-          >
-            Sayılar
-          </a>
-          <span
-            className="w-0.5 h-0.5 rounded-full bg-teal/30"
-            aria-hidden="true"
-          />
-          <a
-            href={`${sectionPrefix}#sss`}
-            className="px-2 py-1 text-teal rounded-full transition-colors duration-[160ms] ease-[var(--ease-volina)] hover:bg-teal/[0.08]"
-          >
-            SSS
-          </a>
+          {links.map((link, i) => (
+            <div key={link.href} className="contents">
+              {i > 0 && (
+                <span
+                  className="w-0.5 h-0.5 rounded-full bg-teal/30"
+                  aria-hidden="true"
+                />
+              )}
+              <Link
+                href={link.href}
+                aria-current={isActive(link.href) ? "page" : undefined}
+                className={`px-2 py-1 rounded-full transition-colors duration-[160ms] ease-[var(--ease-volina)] hover:bg-teal/[0.08] ${
+                  isActive(link.href) ? "text-accent" : "text-teal"
+                }`}
+              >
+                {link.label}
+              </Link>
+            </div>
+          ))}
         </nav>
-        <a
-          href="https://dashboard.volina.ai/login"
-          target="_blank"
-          rel="noopener"
-          className="justify-self-end inline-flex items-center gap-2.5 font-medium text-[14.5px] tracking-[-0.005em] rounded-full px-[18px] py-[11px] pl-5 bg-accent text-white transition-all duration-[160ms] ease-[var(--ease-volina)] hover:-translate-y-px hover:shadow-[0_8px_20px_-8px_rgba(232,98,63,0.55)]"
-        >
-          <span>Kullanıcı Paneli</span>
-          <svg viewBox="0 0 16 16" className="w-3.5 h-3.5" aria-hidden="true">
-            <path
-              d="M4 12L12 4M12 4H6M12 4V10"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </a>
+        <div className="justify-self-end flex items-center gap-2.5">
+          <button
+            type="button"
+            onClick={toggle}
+            aria-label={t.nav.toggleAria}
+            className={`inline-flex items-center justify-center font-mono text-[12.5px] font-medium tracking-[0.04em] rounded-full w-9 h-9 border transition-all duration-[160ms] ease-[var(--ease-volina)] hover:-translate-y-px ${
+              scrolled
+                ? "border-teal/20 text-teal hover:bg-teal/[0.08]"
+                : "border-white/35 text-white hover:bg-white/15"
+            }`}
+          >
+            {t.nav.toggleLabel}
+          </button>
+          <a
+            href="https://dashboard.volina.ai/login"
+            target="_blank"
+            rel="noopener"
+            className="inline-flex items-center gap-2.5 font-medium text-[14.5px] tracking-[-0.005em] rounded-full px-[18px] py-[11px] pl-5 bg-accent text-white transition-all duration-[160ms] ease-[var(--ease-volina)] hover:-translate-y-px hover:shadow-[0_8px_20px_-8px_rgba(232,98,63,0.55)] max-sm:hidden"
+          >
+            <span>{t.nav.cta}</span>
+            <svg viewBox="0 0 16 16" className="w-3.5 h-3.5" aria-hidden="true">
+              <path
+                d="M4 12L12 4M12 4H6M12 4V10"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </a>
+        </div>
       </div>
     </header>
   );

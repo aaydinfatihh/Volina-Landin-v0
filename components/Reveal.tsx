@@ -1,12 +1,19 @@
 "use client";
 
-import { useEffect, useRef, type ReactNode } from "react";
+import {
+  useEffect,
+  useRef,
+  type CSSProperties,
+  type ElementType,
+  type ReactNode,
+} from "react";
 
 type Props = {
   children: ReactNode;
   className?: string;
-  as?: keyof JSX.IntrinsicElements;
+  as?: ElementType;
   delay?: number;
+  style?: CSSProperties;
 };
 
 export default function Reveal({
@@ -14,6 +21,7 @@ export default function Reveal({
   className = "",
   as: Tag = "div",
   delay = 0,
+  style,
 }: Props) {
   const ref = useRef<HTMLElement | null>(null);
 
@@ -41,13 +49,12 @@ export default function Reveal({
     return () => io.disconnect();
   }, []);
 
-  const Component = Tag as keyof JSX.IntrinsicElements;
+  const Component: ElementType = Tag;
   return (
-    // @ts-expect-error — generic ref on intrinsic element
     <Component
       ref={ref}
       className={`reveal ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
+      style={{ transitionDelay: `${delay}ms`, ...style }}
     >
       {children}
     </Component>

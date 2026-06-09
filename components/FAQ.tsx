@@ -2,33 +2,7 @@
 
 import { useRef, useState } from "react";
 import Reveal from "./Reveal";
-
-const faqs = [
-  {
-    q: "Hasta, karşısındakinin yapay zeka olduğunu anlar mı?",
-    a: "Pilot çalışmalarımızda hastaların %98'si konuşmanın sonuna kadar Volina'nın insan olduğunu düşündü. Hastanın \"Sen yapay zeka mısın?\" sorusuna her zaman dürüstlük ile cevap verilmiştir ve bu durum herhangi bir hastada sorun teşkil etmemiştir.",
-  },
-  {
-    q: "Satış ekibimin yerini mi alıyor?",
-    a: "Volina'nın tek amacı, satış danışmanlarının üzerinden geçip geçtiği eski ve ölü CRM leadlerini arayarak hâlâ ilgili olanları tespit etmektir. Sıcak gelen leadler satış ekibine yönlendirilir, Volina'nın odağı ölü leadlerdir.",
-  },
-  {
-    q: "Soğuk aramalar klinik itibarıma zarar verir mi?",
-    a: "Hayır. Volina aramaları doğal, profesyonel ve izinli veri üzerinden gerçekleştirir. Amaç rahatsız etmek değil, hâlâ ilgisi olan potansiyel müşterileri tespit etmektir.",
-  },
-  {
-    q: "Ne kadar eski leadleri arayabilirim?",
-    a: "3 yıl ve daha eski leadlerde bile %4–7 arasında sıcak dönüş gördük. Genel kuralımız: en az 30 gün hareket etmemiş her lead, Volina'nın hedefidir.",
-  },
-  {
-    q: "Fiyatlandırma nasıl?",
-    a: "Fiyatlandırma, lead sayısına ve arama hacmine göre kişiye özel belirleniyor. Sabit bir paket yok, ihtiyacınıza göre en uygun fiyat sağlanmaya çalışılıyor. Detaylar için bizimle iletişime geçin.",
-  },
-  {
-    q: "KVKK'ya uygun mu?",
-    a: "Volina, tüm görüşme kayıtlarını ve müşteri bilgilerini KVKK ve GDPR standartlarına uygun şekilde şifreli olarak saklar. Verileriniz yalnızca size aittir ve gerekli olmadıkça üçüncü taraflarla paylaşılmaz.",
-  },
-];
+import { useLanguage } from "@/lib/i18n";
 
 function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
@@ -66,25 +40,27 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 }
 
 export default function FAQ() {
+  const { t } = useLanguage();
+  const f = t.faq;
   return (
     <section id="sss" className="py-[140px] bg-white">
-      <div className="max-w-[860px] mx-auto px-8">
+      <div className="max-w-[860px] mx-auto px-8 max-md:px-6">
         <Reveal className="mb-7">
           <span className="inline-flex items-center gap-2 bg-surface text-teal py-[7px] px-3.5 pl-3 rounded-full text-[13px] font-medium tracking-[-0.005em] border border-teal/[0.08]">
-            Sıkça Sorulan Sorular
+            {f.eyebrow}
           </span>
         </Reveal>
         <Reveal as="h2" className="display" style={{ color: "#0e4d5c" }}>
-          Klinik sahiplerinin{" "}
+          {f.titleLead}{" "}
           <em className="italic font-semibold" style={{ color: "#e8623f" }}>
-            sık sorduğu şeyler
+            {f.titleEm}
           </em>
         </Reveal>
 
         <div className="mt-12 flex flex-col">
-          {faqs.map((f) => (
-            <Reveal key={f.q}>
-              <FAQItem q={f.q} a={f.a} />
+          {f.items.map((item) => (
+            <Reveal key={item.q}>
+              <FAQItem q={item.q} a={item.a} />
             </Reveal>
           ))}
         </div>

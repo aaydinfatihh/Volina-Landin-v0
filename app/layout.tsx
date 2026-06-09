@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SmoothScroll from "@/components/SmoothScroll";
+import { LanguageProvider } from "@/lib/i18n";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -27,8 +28,10 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <SmoothScroll />
-        {children}
+        <LanguageProvider>
+          <SmoothScroll />
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );
